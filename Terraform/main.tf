@@ -1,7 +1,6 @@
 provider "aws" {
   region = var.aws_region
   # Perfil configurado localmente para deployar nuestra infra
-  profile = "ArroyoPoc"
 }
 
 

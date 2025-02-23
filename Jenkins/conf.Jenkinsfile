@@ -47,5 +47,22 @@ pipeline {
                 }
             }
         }
+        
+        stage('Instalar Terraform') {
+            steps {
+                script {
+                    sh '''
+                        echo "**** Install Terraform ****"
+                        # Descargar la versión más reciente de Terraform
+                        curl -fsSL https://releases.hashicorp.com/terraform/1.4.0/terraform_1.4.0_linux_amd64.zip -o /tmp/terraform.zip
+
+                        # Instalar Terraform
+                        unzip /tmp/terraform.zip -d /usr/local/bin
+                        rm /tmp/terraform.zip
+                        terraform -v
+                    '''
+                }
+            }
+        }
     }
 }
