@@ -207,16 +207,11 @@ docker push rodrisalas5/arroyo:tagname
 Para correr Jenkins mediante Docker:
 
 ```
-docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 --restart=on-failure jenkins/jenkins:lts-jdk17
-
-docker run -d \
-  -v jenkins_home:/var/jenkins_home \
-   \
-  -p 8080:8080 \
-  -p 50000:50000 \
-  --restart=on-failure \
-  jenkins/jenkins:lts-jdk17
-
+docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 --user root --restart=on-failure jenkins/jenkins:lts-jdk17
 ```
 
 Para cumplir los requirimientos de automatización, se utilizará un solo Jenkins. Si el proyecto escala, siempre se recomienda la utilización de Slaves para no sobrecargar al Jenkins Master.
+
+1. Creamos un pipeline para instalar Java y Maven: Jenkins/conf.Jenkinsfile
+
+2. Creamos un pipeline para construir nuestra app de Java: Jenkins/build.Jenkinsfile
