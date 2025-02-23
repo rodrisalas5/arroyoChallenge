@@ -76,9 +76,9 @@
         </profile>
     </profiles>
 
-    <!-- <modules>
+    <modules>
         <module>helloworld</module>
-    </modules> -->
+    </modules>
 
     <dependencyManagement>
         <dependencies>
