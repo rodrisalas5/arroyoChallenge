@@ -236,6 +236,12 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+
     </repositories>
 
 </project>
