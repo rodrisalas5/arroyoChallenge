@@ -76,9 +76,9 @@
         </profile>
     </profiles>
 
-    <modules>
+    <!-- <modules>
         <module>helloworld</module>
-  </modules>
+    </modules> -->
 
     <dependencyManagement>
         <dependencies>
@@ -236,11 +236,6 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-        <repository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-
     </repositories>
 
 </project>
