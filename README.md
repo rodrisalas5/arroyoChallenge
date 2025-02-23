@@ -215,3 +215,37 @@ Para cumplir los requirimientos de automatización, se utilizará un solo Jenkin
 1. Creamos un pipeline para instalar Java y Maven: Jenkins/conf.Jenkinsfile
 
 2. Creamos un pipeline para construir nuestra app de Java: Jenkins/build.Jenkinsfile
+
+3. Creamos un pipeline para construir nuestra arquitectura: Jenkins/tf-plan.Jenkinsfile
+
+**Nota:** No se crea pipeline con "terraform apply" ya que es una PoC.
+
+![Jenkins](/Img/Jenkins.drawio.svg)
+
+### Consideraciones finales
+
+- Ya construido nuestro proyecto, solamente deberíamos configurar el Dockerfile para que contenga el .war generado mediante el pipeline
+- Ya configurado el Dockerfile se podría construír el proyecto con Jenkins y que suba la imagen a nuestro registry elegido 
+
+Por una cuestión de simplicidad, se sube .war al repositorio del código para poder construír el proyecto de forma más sencilla y poder replicar PoC. 
+--- 
+
+### Conclusión final
+
+- A lo largo del readme.md podrá encontrar como deployar el proyecto de manera manual o automatizarlo con Jenkins 
+- Se podría mejorar aún muchísimo más cada parte del proceso
+
+### Mejoras a futuro
+
+- Comprobar con SonarQube seguridad del código
+- Implementación de SSM para no tener hardcodeado ningún valor (ejemplo, usuario y password de DB en Terraform)
+- Si se utilizará un clúster, considerar la utilización de Argo CD para corroborar el estado de nuestro deployment y demás recursos
+
+---
+
+# Documentación utilizada
+- [AWS](https://docs.aws.amazon.com/)
+- [Docker](https://docs.docker.com/)
+- [Ubuntu](https://documentation.ubuntu.com/server/)
+- [Jenkins](https://www.jenkins.io/doc/)
+- [Terraform](https://developer.hashicorp.com/terraform/docs)
