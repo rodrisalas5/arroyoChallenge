@@ -229,6 +229,7 @@ Para cumplir los requirimientos de automatización, se utilizará un solo Jenkin
 - Ya construido nuestro proyecto, solamente deberíamos configurar el Dockerfile para que contenga el .war generado mediante el pipeline
 - Ya configurado el Dockerfile se podría construír el proyecto con Jenkins y que suba la imagen a nuestro registry elegido (utilizando Jenkins como servicio, no como contenedor)
 - Jenkins debería contar con su propia instancia EC2, no ejecutar como contenedor (se podría utilizar podman como alternativa para construir imágenes en nuestro contenedor)
+- No se agrega la automatización de "push" imagen al registry por utilizarlo como contenedor para la PoC
 
 Por una cuestión de simplicidad, se sube .war al repositorio del código para poder construír el proyecto de forma más sencilla y poder replicar PoC. 
 --- 

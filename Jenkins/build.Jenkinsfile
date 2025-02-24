@@ -5,7 +5,7 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 script {
-                    // Verificar si el repositorio ya está clonado
+                    // Verificar si el repositorio ya está clonado 
                     def repoDir = 'arroyoChallenge'
                     if (!fileExists(repoDir)) {
                         sh "git clone https://github.com/rodrisalas5/arroyoChallenge.git"
