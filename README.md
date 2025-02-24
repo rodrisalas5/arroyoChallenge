@@ -51,10 +51,10 @@ A su vez, se agregarán diagramas y justificaciones sobre las decisiones tomadas
 - Cuenta con AMI de sistema operativo Linux
 - Se puede ejecutar un init script para la configuración inicial
 
-Sin dudas, para este caso no tiene "sentido" levantar un clúster para una aplicación monolito y que no es un micro servicio. Si bien Kubernetes nos permite mayor escalabildiad y flexibilidad con una instancia EC2 logramos: 
+Sin dudas, para este caso no tiene "sentido" levantar un clúster para una aplicación monolito y que no es un micro servicio. Si bien Kubernetes nos permite mayor escalabildiad y flexibilidad, con una instancia EC2 logramos: 
 
 - Escalar verticalmente (subiendo el type de la instancia, por ejemplo, de t2.micro a t2.2xlarge)
-- Escalar horizontalmente (deployando nuevas intancias que puedan ser administradas por un, por ejemplo, un load balancer para distruir la carga)
+- Escalar horizontalmente (deployando nuevas intancias que puedan ser administradas por, por ejemplo, un load balancer para distruir la carga)
 
 Si a futuro, nuestra aplicación crece no existe duda alguna que se debería migrar a un orquestador. En dicho caso, se sugieran las siguientes recomendaciones:
 
@@ -90,6 +90,8 @@ Teniendo en cuenta:
 terraform init
 
 terraform fmt
+
+terraform validate
 
 terraform plan -var-file="secrets.tfvars"
 
@@ -185,7 +187,7 @@ docker exec -it [CONTAINER ID] bash
 
 ### Aplicación "Hello World" funcionando
 
-![App](/Img/App.drawio.svg)
+![App](/Img/app.drawio.svg)
 
 ---
 
@@ -225,7 +227,8 @@ Para cumplir los requirimientos de automatización, se utilizará un solo Jenkin
 ### Consideraciones finales
 
 - Ya construido nuestro proyecto, solamente deberíamos configurar el Dockerfile para que contenga el .war generado mediante el pipeline
-- Ya configurado el Dockerfile se podría construír el proyecto con Jenkins y que suba la imagen a nuestro registry elegido 
+- Ya configurado el Dockerfile se podría construír el proyecto con Jenkins y que suba la imagen a nuestro registry elegido (utilizando Jenkins como servicio, no como contenedor)
+- Jenkins debería contar con su propia instancia EC2, no ejecutar como contenedor (se podría utilizar podman como alternativa para construir imágenes en nuestro contenedor)
 
 Por una cuestión de simplicidad, se sube .war al repositorio del código para poder construír el proyecto de forma más sencilla y poder replicar PoC. 
 --- 
@@ -233,7 +236,6 @@ Por una cuestión de simplicidad, se sube .war al repositorio del código para p
 ### Conclusión final
 
 - A lo largo del readme.md podrá encontrar como deployar el proyecto de manera manual o automatizarlo con Jenkins 
-- Se podría mejorar aún muchísimo más cada parte del proceso
 
 ### Mejoras a futuro
 
