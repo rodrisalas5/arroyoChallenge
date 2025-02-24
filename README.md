@@ -237,6 +237,7 @@ Por una cuestión de simplicidad, se sube .war al repositorio del código para p
 ### Conclusión final
 
 - A lo largo del readme.md podrá encontrar como deployar el proyecto de manera manual o automatizarlo con Jenkins 
+- Se ha decidido la utilización de contenedores para llevar a cabo la prueba técnica para demostrar el gran potencial que tienen y lo fácil que resulta ejecutar herramientas como Jenkins para su utilización. 
 
 ### Mejoras a futuro
 
